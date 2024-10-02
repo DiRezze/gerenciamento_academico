@@ -12,7 +12,7 @@ const NavBar = () => {
     const location = useLocation();
 
     return(
-        <nav className="bg-neutral-900 p-4 w-full top-0 space-x-4 flex flex-row sticky">
+        <nav className="bg-neutral-900 p-4 w-full top-0 space-x-4 flex flex-row sticky z-50">
             <ul className="flex space-x-4 justify-left w-full flex-row">
                 <li>
                     <GraduationCap color="#fefefe" />
