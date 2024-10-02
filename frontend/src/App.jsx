@@ -5,8 +5,8 @@ import HomePage from './pages/homePage';
 import NotFound from './pages/notFound';
 import NavBar from './components/navbar';
 
-function App() {
-  return (
+const App = () => {
+  return(
     <BrowserRouter>
       <NavBar />
       <Routes>
