@@ -12,15 +12,24 @@ function Aluno() {
 
   return (
     <>
-      <div>
-      <h1>Lista de Alunos</h1>
-      <ul>
+      <div className='flex flex-col items-center'>
+      <h1 className='my-2'>Lista de Alunos</h1>
+      <table className="m-8 w-[90vw] table-auto border-collapse border border-gray-300">
+        <tr className="bg-blue-400">
+          <th>Nome</th>
+          <th>Email</th>
+        </tr>
         {alunos.map((aluno) => (
-          <li key={aluno.rm}>
-            {aluno.nome} - {aluno.email} - {aluno.telefone}
-          </li>
+          <tr key={aluno.rm}>
+            <td className="px-4 py-2 border border-gray-300">
+              {aluno.nome}
+            </td>
+            <td className="px-4 py-2 border border-gray-300">
+              {aluno.email}
+            </td>
+          </tr>
         ))}
-      </ul>
+      </table>
     </div>
     </>
   )

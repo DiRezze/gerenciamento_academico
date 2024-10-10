@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 // TODO: altarar o parâmetro do cors para o url da aplicação hospedada
-app.use(cors()); // permite o acesso da API apenas às rotas passadas como parâmetro do cors
+app.use(cors({origin: '*'})); // permite o acesso da API apenas às rotas passadas como parâmetro do cors
 app.use(express.json());
 
 const database = mysql.createConnection({
@@ -36,6 +36,16 @@ const getAllDataFrom = (tableName, res) => {
 
 app.get('/alunos', (req, res) => {
     getAllDataFrom('alunos', res);
+});
+
+app.get('/api/check-db', (req, res) => {
+    database.query('SELECT 1', (err, results) => {
+        if (err) {
+            console.error('Erro ao verificar conexão com o banco de dados:', err);
+            return res.status(500).json({ status: 'offline', error: err.message });
+        }
+        res.status(200).json({ status: 'online' });
+    });
 });
 
 
