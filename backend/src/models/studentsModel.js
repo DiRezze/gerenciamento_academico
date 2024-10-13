@@ -1,10 +1,18 @@
-const dbConnection = require('./connection');
+const { json } = require('express');
+const initializeConnection = require('./connection');
 
-const getAllStudents = async () => {
-    const students = await dbConnection.query('SELECT * FROM alunos');
-    return students;
+const getAll = async () => {
+    try {
+        const connection = await initializeConnection();
+        const [students] = await connection.execute("SELECT * FROM alunos");
+        return students;
+    }
+    catch (err) {
+        console.log("Erro ao executar a query: ", err);
+        throw err;
+    }
 };
 
 module.exports = {
-    getAllStudents
+    getAll
 };
