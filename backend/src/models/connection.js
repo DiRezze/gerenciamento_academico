@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const util = require('util');
 
 const dbConnection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -6,5 +7,7 @@ const dbConnection = mysql.createConnection({
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DB
 });
+
+dbConnection.query = util.promisify(dbConnection.query);
 
 module.exports = dbConnection;
