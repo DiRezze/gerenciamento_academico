@@ -4,7 +4,7 @@ function Aluno() {
   const [alunos, setAlunos] = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:8089/alunos')
+    fetch('http://localhost:8089/students')
     .then(response => response.json())
     .then(data => setAlunos(data))
     .catch(error => console.error('Erro ao buscar alunos:', error));
