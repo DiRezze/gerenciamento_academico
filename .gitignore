@@ -26,3 +26,4 @@ frontend/*.sw?
 
 # Backend
 backend/node_modules
+backend/.env
