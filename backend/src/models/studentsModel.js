@@ -1,4 +1,3 @@
-const { json } = require('express');
 const initializeConnection = require('./connection');
 
 const getAll = async () => {
