@@ -1,0 +1,5 @@
+@keyframes slideIn {
+    0% {transform: translateY(32px);opacity: 0;}
+    100% {transform: translateY(0);opacity: 1;}
+}
+.bottom-modal-custom {animation: slideIn 0.2s ease-in-out forwards;}
