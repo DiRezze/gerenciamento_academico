@@ -3,8 +3,9 @@ import axios from 'axios';
 import { SquarePlus, ArrowUpWideNarrow } from 'lucide-react';
 import CreateStudentForm from '../components/forms/createStudent';
 import SearchBar from '../components/searchBar';
+import ButtonWithIcon from '../components/buttonIcon';
 
-function Aluno() {
+const StudentPage = () => {
   const [alunos, setAlunos] = useState([]);
   const [createVisible, setCreateVisible] = useState(false);
 
@@ -30,15 +31,17 @@ function Aluno() {
         <h1 className='my-2'>Lista de Alunos</h1>
         <div className='flex flex-row gap-2 justify-start w-[90vw]'>
           <SearchBar />
-          <button onClick={()=>setCreateVisible(true)} className='bg-blue-500 flex items-center justify-start p-2 text-white rounded-md transform transition-transform duration-200 ease-in-out hover:scale-[1.02] active:scale-95'>
-            <SquarePlus className='px-1' />
-            <span className='font-medium'>Cadastrar alunos</span>
-          </button>
-          <button onClick={()=>setCreateVisible(true)} className='bg-blue-500 flex items-center justify-start p-2 text-white rounded-md transform transition-transform duration-200 ease-in-out hover:scale-[1.02] active:scale-95'>
-            <ArrowUpWideNarrow className="px=1"/>
-            <span className='font-medium'>Filtrar</span>
-          </button>
+          <ButtonWithIcon
+            text={"Cadastrar"}
+            iconComponent={<SquarePlus />}
+            onClick={()=>setCreateVisible(true)}
+          />
+          <ButtonWithIcon
+            text={"Ordenar"}
+            iconComponent={<ArrowUpWideNarrow />}
+          />
         </div>
+      {(!alunos) ? <span>Não há alunos cadastrados</span>:
       <table className="m-8 w-[90vw] table-auto border-collapse border border-gray-300">
         <thead>
           <tr>
@@ -59,10 +62,11 @@ function Aluno() {
           ))}
         </tbody>
       </table>
+      }
       <CreateStudentForm open={createVisible} setOpen={setCreateVisible} />
     </div>
     </>
   )
 }
 
-export default Aluno
+export default StudentPage;
