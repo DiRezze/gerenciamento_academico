@@ -7,3 +7,15 @@
   flex: 1;
   text-align: center;
 }
+@keyframes refresh{
+  0%{
+    rotate: 0deg;
+  }
+  100%{
+    rotate: -720deg;
+  }
+}
+.refresh-spin-icon:hover{
+  cursor: pointer;
+  animation: refresh 0.8s ease-in-out backwards;
+}

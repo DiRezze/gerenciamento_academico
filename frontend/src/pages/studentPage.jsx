@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SquarePlus, ArrowUpWideNarrow } from 'lucide-react';
+import { SquarePlus, ArrowUpWideNarrow, RefreshCcw } from 'lucide-react';
 import CreateStudentForm from '../components/forms/createStudent';
 import SearchBar from '../components/searchBar';
 import ButtonWithIcon from '../components/buttonIcon';
@@ -19,7 +19,7 @@ const StudentPage = () => {
   return (
     <>
       <div className='flex flex-col items-center'>
-        <h1 className='my-2'>Lista de Alunos</h1>
+        <h1 className='my-4 font-medium'>Lista de Alunos</h1>
 
         <div className='flex flex-row gap-2 justify-start w-[90vw]'>
           <SearchBar />
@@ -32,6 +32,11 @@ const StudentPage = () => {
             text={"Ordenar"}
             iconComponent={<ArrowUpWideNarrow />}
           />
+        </div>
+
+        <div className='flex flex-row items-center justify-center mt-2'>
+          <span className='text-gray-200'>Foram encontrados {alunos.length} alunos.</span>
+          <RefreshCcw className='m-2 hover:scale-[1.02] refresh-spin-icon' />
         </div>
 
         <StudentsTable tableData={alunos} />
