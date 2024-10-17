@@ -2,11 +2,12 @@ import React from "react";
 
 const StudentsTable = ({tableData}) => {
     return (
-        <table className="m-8 w-[90vw] table-auto border-collapse border border-gray-300">
+        <table className="mx-8 mt-2 mb-8 w-[90vw] table-auto border-collapse border border-gray-300">
         <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
+          <tr className="flex flex-row">
+            <th className="flex-1 px-4 py-2 border border-gray-300 font-medium">Nome</th>
+            <th className="flex-1 px-4 py-2 border border-gray-300 font-medium">Email</th>
+            <th className="flex-1 px-4 py-2 border border-gray-300 font-medium">Telefone</th>
           </tr>
         </thead>
         <tbody>
