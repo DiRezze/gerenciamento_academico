@@ -7,14 +7,29 @@ import StudentsTable from '../components/tables/studentsTable';
 
 const StudentPage = () => {
   const [alunos, setAlunos] = useState([]);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [createVisible, setCreateVisible] = useState(false);
 
-  useEffect(()=>{
+  const fetchStudents = () => {
     fetch('http://localhost:8089/students')
     .then(response => response.json())
-    .then(data => setAlunos(data))
-    .catch(error => console.error('Erro ao buscar alunos:', error));
+    .then(data => {
+      setAlunos(data)
+      setIsRefreshing(false)
+    })
+    .catch(err => {
+      console.log("Erro ao recarregar: ", err);
+      setIsRefreshing(false);
+    })
+  }
+
+  useEffect(() => {
+    fetchStudents();
   }, []);
+
+  const handleRefresh = () => {
+    fetchStudents();
+  }
 
   return (
     <>
@@ -36,7 +51,7 @@ const StudentPage = () => {
 
         <div className='flex flex-row items-center justify-center mt-2'>
           <span className='text-gray-200'>Foram encontrados {alunos.length} alunos.</span>
-          <RefreshCcw className='m-2 hover:scale-[1.02] refresh-spin-icon' />
+          <RefreshCcw className='m-2 hover:scale-[1.02] refresh-spin-icon' onClick={handleRefresh} />
         </div>
 
         <StudentsTable tableData={alunos} />
