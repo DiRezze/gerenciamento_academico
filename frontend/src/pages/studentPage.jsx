@@ -7,10 +7,11 @@ import StudentsTable from '../components/tables/studentsTable';
 
 const StudentPage = () => {
   const [alunos, setAlunos] = useState([]);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(true);
   const [createVisible, setCreateVisible] = useState(false);
 
   const fetchStudents = () => {
+    setIsRefreshing(true);
     fetch('http://localhost:8089/students')
     .then(response => response.json())
     .then(data => {
@@ -54,9 +55,10 @@ const StudentPage = () => {
           <RefreshCcw className='m-2 hover:scale-[1.02] refresh-spin-icon' onClick={handleRefresh} />
         </div>
 
+        {isRefreshing && <span>Carregando</span>}
         <StudentsTable tableData={alunos} />
 
-        <CreateStudentForm open={createVisible} setOpen={setCreateVisible} />
+        <CreateStudentForm open={createVisible} setOpen={setCreateVisible} callback={handleRefresh}/>
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import BottomModal from "../bottomModal";
 
-const CreateStudentForm = ({open, setOpen}) => {
+const CreateStudentForm = ({open, setOpen, callback}) => {
     const [formData, setFormData] = useState({
         nome: '',
         email: '',
@@ -26,6 +26,7 @@ const CreateStudentForm = ({open, setOpen}) => {
             alert(response.data.message);
             setFormData({ nome: '', email: '', nascimento: '', telefone: '' });
             setOpen(false);
+            callback();
         } catch (error) {
             if (error.response && error.response.status === 409) {
                 setErrorMessage(error.response.data.message);
