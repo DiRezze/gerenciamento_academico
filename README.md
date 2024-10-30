@@ -41,7 +41,5 @@ Em outro terminal, execute no diretório ```./frontend/```:
 ```
 Ou, caso queira expor à rede local:
 ```bash
- npm run dev
+ npm run dev -- --host
 ```
-
-
