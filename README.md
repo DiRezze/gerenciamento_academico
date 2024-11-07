@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento Acadêmico (Incompleto)
 
-Uma aplicação fullstack projetada para gerenciar dados de alunos em uma escola, oferecendo funcionalidades completas de CRUD. A aplicação permite que administradores registrem informações dos alunos, visualizem dados detalhados, atualizem registros e removam informações desatualizadas, tudo isso em uma interface intuitiva construída com React.js.
+Uma aplicação fullstack projetada para gerenciar dados de alunos em uma escola, oferecendo funcionalidades completas de gerenciamento. A aplicação permite que administradores registrem informações dos alunos e professores, visualizem dados detalhados, registrem eventos, atualizem registros e removam informações desatualizadas, tudo isso em uma interface intuitiva construída com React.js.
 
 ## Como executar o projeto
 
