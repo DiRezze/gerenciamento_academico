@@ -34,7 +34,7 @@ const StudentPage = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center min-h-[75%]'>
         <h1 className='my-4 font-medium'>Lista de Alunos</h1>
 
         <div className='flex flex-row gap-2 justify-start w-[90vw]'>
@@ -50,12 +50,23 @@ const StudentPage = () => {
           />
         </div>
 
-        <div className='flex flex-row items-center justify-center mt-2'>
-          <span className='text-gray-200'>Foram encontrados {alunos.length} alunos.</span>
-          <RefreshCcw className='m-2 hover:scale-[1.02] refresh-spin-icon' onClick={handleRefresh} />
-        </div>
+        {isRefreshing ?
+          <div className='flex flex-row items-center justify-center mt-2'>
+            <RefreshCcw className='m-2 hover:scale-[1.02] refreshing-icon' />
+            <span>Carregando</span>
+          </div>
+          :
+          <div className='flex flex-row items-center justify-center mt-2'>
+            <span className='text-gray-200'>
+              {alunos.length>0 ? 
+              'Foram encontrados {alunos.length} alunos.' :
+              'Tentar buscar a lista de alunos novamente:'
+              }
+            </span>
+            <RefreshCcw className='m-2 hover:scale-[1.02] refresh-spin-icon' onClick={handleRefresh} />
+          </div>
 
-        {isRefreshing && <span>Carregando</span>}
+        }
         <StudentsTable tableData={alunos} />
 
         <CreateStudentForm open={createVisible} setOpen={setCreateVisible} callback={handleRefresh}/>

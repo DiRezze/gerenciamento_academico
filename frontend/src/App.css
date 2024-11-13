@@ -19,3 +19,6 @@
   cursor: pointer;
   animation: refresh 0.8s ease-in-out backwards;
 }
+.refreshing-icon{
+  animation: refresh 0.8s infinite ease-in-out backwards;
+}
