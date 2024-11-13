@@ -59,7 +59,7 @@ const StudentPage = () => {
           <div className="flex flex-row items-center justify-center mt-2">
             <span className="text-gray-200">
               {alunos.length > 0
-                ? "Foram encontrados {alunos.length} alunos."
+                ? `Foram encontrados ${alunos.length} alunos.`
                 : "Tentar buscar a lista de alunos novamente:"}
             </span>
             <RefreshCcw

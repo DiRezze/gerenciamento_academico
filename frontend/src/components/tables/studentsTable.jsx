@@ -2,7 +2,7 @@ import React from "react";
 import { UserRoundX } from "lucide-react";
 
 const StudentsTable = ({ tableData }) => {
-  if (tableData.lenght) {
+  if (tableData.length > 0) {
     return (
       <table className="mx-8 mt-2 mb-8 w-[90vw] table-auto border-collapse border min-h-full border-gray-300">
         <thead>
