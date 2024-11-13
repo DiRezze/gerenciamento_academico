@@ -1,5 +1,5 @@
 import React from "react";
-import { UserRoundX } from 'lucide-react';
+import { UserRoundX } from "lucide-react";
 
 const StudentsTable = ({ tableData }) => {
   if (tableData.lenght) {
@@ -22,7 +22,9 @@ const StudentsTable = ({ tableData }) => {
           {tableData.map((aluno) => (
             <tr key={aluno.rm}>
               <td className="px-4 py-2 border border-gray-300">{aluno.nome}</td>
-              <td className="px-4 py-2 border border-gray-300">{aluno.email}</td>
+              <td className="px-4 py-2 border border-gray-300">
+                {aluno.email}
+              </td>
               <td className="px-4 py-2 border border-gray-300">
                 {aluno.telefone}
               </td>
@@ -33,9 +35,9 @@ const StudentsTable = ({ tableData }) => {
     );
   }
 
-  return(
+  return (
     <div className="flex flex-col items-center justify-center m-4 flex-grow">
-      <UserRoundX size={64}/>
+      <UserRoundX size={64} />
       <span>Não foi possível encontrar registros de alunos.</span>
     </div>
   );
