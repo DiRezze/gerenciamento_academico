@@ -1,4 +1,4 @@
-import { BookUser, CalendarRange, ChartColumnBig, IdCard } from "lucide-react";
+import { BookUser, CalendarRange, ChartColumnBig, IdCard, Settings, BookMarked } from "lucide-react";
 import { homeCarousel } from "../constants/homeConst.js";
 import HomeButton from "../components/homeButton.jsx";
 import UserHeader from "../components/userHeader.jsx";
@@ -12,9 +12,11 @@ const HomePage = () => {
             <Carousel contentArray={homeCarousel}/>
             <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 w-11/12 mx-auto my-8">
                 <HomeButton targetLink={"/alunos"} icon={<BookUser />} text={"Alunos"} />
-                <HomeButton targetLink={"/alunos"} icon={<ChartColumnBig />} text={"Notas e Frequência"} />
                 <HomeButton targetLink={"/alunos"} icon={<CalendarRange />} text={"Eventos"} />
+                <HomeButton targetLink={"/alunos"} icon={<BookMarked />} text={"Disciplinas"} />
                 <HomeButton targetLink={"/alunos"} icon={<IdCard />} text={"Meus dados"} />
+                <HomeButton targetLink={"/alunos"} icon={<ChartColumnBig />} text={"Notas e Frequência"} />
+                <HomeButton targetLink={"/alunos"} icon={<Settings />} text={"Configurações"} />
             </section>
         </main>
     )
