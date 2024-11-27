@@ -12,7 +12,7 @@ const HomePage = () => {
             <Carousel contentArray={homeCarousel}/>
             <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 w-11/12 mx-auto my-8">
                 <HomeButton targetLink={"/alunos"} icon={<BookUser />} text={"Alunos"} />
-                <HomeButton targetLink={"/alunos"} icon={<CalendarRange />} text={"Eventos"} />
+                <HomeButton targetLink={"/eventos"} icon={<CalendarRange />} text={"Eventos"} />
                 <HomeButton targetLink={"/alunos"} icon={<BookMarked />} text={"Disciplinas"} />
                 <HomeButton targetLink={"/alunos"} icon={<IdCard />} text={"Meus dados"} />
                 <HomeButton targetLink={"/alunos"} icon={<ChartColumnBig />} text={"Notas e Frequência"} />
