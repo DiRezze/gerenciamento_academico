@@ -17,8 +17,6 @@ const initializeConnection = async () => {
     
             console.log("Conexão bem-sucedida.");
     
-            return dbConnection;
-    
         }
         catch (err){
             console.log("Erro ao conectar com o BD: ", err);
