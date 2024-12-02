@@ -2,14 +2,15 @@ import React, { createContext, useState } from "react";
 
 const AuthContext = createContext(undefined);
 
-export const AuthProvider = () => {
+export const AuthProvider = ({children}) => {
+    
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [currentUser, setCurrentUser] = useState(null);
-    const [isLoading, SetIsLoading] = useState(false);
+    const [isLoadingAuth, SetIsLoadingAuth] = useState(false);
 
     const signIn = async (user, password) => {
         try {
-            SetIsLoading(true);
+            setIsLoading(true);
 
             // authentication req logic
             
@@ -18,22 +19,30 @@ export const AuthProvider = () => {
             setCurrentUser(null);
             
         } finally {
-            SetIsLoading(false);
+            setIsLoading(false);
         }
 
     }
 
     const signOut = async () => {
         try {
-            SetIsLoading(true);
+            setIsLoading(true);
 
             // authentication req logic
 
         } catch (err) {
             
         } finally{
-            SetIsLoading(false);
+            setIsLoading(false);
         }
     }
+
+    return(
+        <AuthContext.Provider value={{ isAuthenticated, currentUser,  isLoadingAuth, signIn, signOut }}>
+            { children }
+        </AuthContext.Provider>
+    );
     
 }
+
+export const useAuth = () => React.useContext(AuthContext);
